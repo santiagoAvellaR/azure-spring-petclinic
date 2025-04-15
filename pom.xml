@@ -6,7 +6,7 @@
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>3.4.2</version>
-    <relativePath></relativePath>
+    <relativePath/>
   </parent>
 
   <groupId>org.springframework.samples</groupId>
@@ -286,7 +286,33 @@
         <groupId>org.cyclonedx</groupId>
         <artifactId>cyclonedx-maven-plugin</artifactId>
       </plugin>
-
+        <plugin>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-webapp-maven-plugin</artifactId>
+            <version>2.14.1</version>
+            <configuration>
+                <schemaVersion>v2</schemaVersion>
+                <resourceGroup>spring-petclinic-1744686690774-rg</resourceGroup>
+                <appName>spring-petclinic-1744686690774</appName>
+                <pricingTier>F1</pricingTier>
+                <region>centralus</region>
+                <runtime>
+                    <os>Linux</os>
+                    <javaVersion>Java 17</javaVersion>
+                    <webContainer>Java SE</webContainer>
+                </runtime>
+                <deployment>
+                    <resources>
+                        <resource>
+                            <directory>${project.basedir}/target</directory>
+                            <includes>
+                                <include>*.jar</include>
+                            </includes>
+                        </resource>
+                    </resources>
+                </deployment>
+            </configuration>
+        </plugin>
     </plugins>
   </build>
   <licenses>
@@ -414,7 +440,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore></ignore>
+                        <ignore/>
                       </action>
                     </pluginExecution>
                     <pluginExecution>
@@ -427,7 +453,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore></ignore>
+                        <ignore/>
                       </action>
                     </pluginExecution>
                     <pluginExecution>
@@ -440,7 +466,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore></ignore>
+                        <ignore/>
                       </action>
                     </pluginExecution>
                   </pluginExecutions>
